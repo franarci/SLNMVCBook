@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -23,13 +24,14 @@ namespace MVCBook.Models
         [Required]
         [StringLength(50)]
         public string Publisher { get; set; }
-        [RegularExpression(@"^\d{4}(\-|V|\.)\d{1,2}$")]
+        [RegularExpression(@"^\d{4}(\-|V|\.)\d{1,2}$", ErrorMessage = "Ingrese un formato de fecha válido, Por ejemplo: 2017-06-16 ")]
         public string PublicationDate { get; set; }
         public string Content { get; set; }       
         [DataType("money")]
         public decimal Price { get; set; }
         [DataType("money")]
-        [PriceConfirmValidation("Price")]
+        [Compare("Price")]
+        [NotMapped]
         public decimal PriceConfirm { get; set; }
     }
 }
