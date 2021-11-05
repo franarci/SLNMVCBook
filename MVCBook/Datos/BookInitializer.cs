@@ -22,7 +22,7 @@ namespace MVCBook.Datos
                   Price = 250,
                   PriceConfirm=250,
                   Publisher ="Publisher",
-                  PublicationDate=new DateTime(1978,05,15)
+                  PublicationDate="1978-05-05"
                }
             };
             books.ForEach(b => context.Books.Add(b));
