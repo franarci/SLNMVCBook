@@ -24,7 +24,7 @@ namespace MVCBook.Models
         [StringLength(50)]
         public string Publisher { get; set; }
         [RegularExpression(@"^\d{4}(\-|V|\.)\d{1,2}$", ErrorMessage = "Ingrese un formato de fecha válido, Por ejemplo: 2017-06-16 ")]
-        public string PublicationDate { get; set; }
+        public DateTime PublicationDate { get; set; }
         public string Content { get; set; }       
         [DataType("money")]
         public decimal Price { get; set; }
